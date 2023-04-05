@@ -1,0 +1,36 @@
+
+name: ci_compile_latex
+on:
+  pull_request:
+
+jobs:
+  paper:
+    runs-on: ubuntu-latest
+    container:
+      image: thomasweise/docker-texlive-full:latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install moderncv
+        run: |
+          apt update && apt install -y git poppler-utils
+          git clone https://github.com/moderncv/moderncv moderncv
+          cd moderncv
+          git checkout fa3ebb6
+          rm /usr/share/texlive/texmf-dist/tex/latex/moderncv/*
+          cp -r * /usr/share/texlive/texmf-dist/tex/latex/moderncv/
+      - name: Compile Latex
+        run: latexmk -pdflua cv.tex
+      - name: Convert to png
+        run: |
+          pdftoppm cv.pdf cv -png
+          mkdir github_deploy
+          mv *.png github_deploy
+      - name: deploy on orphan branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./github_deploy
+          publish_branch: comments
+          force_orphan: true
+        
