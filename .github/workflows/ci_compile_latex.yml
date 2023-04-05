@@ -28,7 +28,7 @@ jobs:
           mkdir github_deploy
           mv *.png github_deploy
       - name: deploy on orphan branch
-        uses: peaceiris/actions-gh-pages@7e55c73 #514
+        uses: peaceiris/actions-gh-pages@7e55c73ee896b01b8b8668370794b96f1bc9c759 #514
         id: publish
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
