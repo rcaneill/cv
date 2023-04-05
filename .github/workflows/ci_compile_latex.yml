@@ -27,7 +27,7 @@ jobs:
           pdftoppm cv.pdf cv -png
           mkdir github_deploy
           mv *.png github_deploy
-          echo "DEPLOY_TAG_NAME=$(date -Ins)" >> $GITHUB_OUTPUT
+          echo "DEPLOY_TAG_NAME=$(date +\"%Y.%m.%d-%H.%M.%S-%N\")" >> $GITHUB_OUTPUT
       - name: Create message
         env:
           images: ${{ steps.vars.outputs.files }}
