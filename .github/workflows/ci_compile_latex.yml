@@ -42,7 +42,6 @@ jobs:
           publish_dir: ./github_deploy
           tag_name: ${{ steps.png.outputs.DEPLOY_TAG_NAME }}
           publish_branch: comments
-          force_orphan: true
       - name: comment png
         uses: thollander/actions-comment-pull-request@v2
         with:
