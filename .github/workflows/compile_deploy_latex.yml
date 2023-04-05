@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name Compile Latex
+      - name: Compile Latex
         uses: xu-cheng/latex-action@v2
         with:
           root_file: cv.tex
