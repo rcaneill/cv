@@ -27,14 +27,14 @@ jobs:
           pdftoppm cv.pdf cv -png
           mkdir github_deploy
           mv *.png github_deploy
-          echo "files=$(ls github_deploy)" >> $GITHUB_OUTPUT
           echo "DEPLOY_TAG_NAME=$(date -Ins)" >> $GITHUB_OUTPUT
       - name: Create message
         env:
           images: ${{ steps.vars.outputs.files }}
           tag_name: ${{ steps.png.outputs.DEPLOY_TAG_NAME }}
         run: |
-          for i in $images; do echo "https://github.com/rcaneill/cv/raw/deploy-$tag_name/$i" >> message.txt; done
+          cd github_deploy
+          for i in *.png; do echo "https://github.com/rcaneill/cv/raw/deploy-$tag_name/$i" >> message.txt; done
       - name: deploy on orphan branch
         uses: peaceiris/actions-gh-pages@v3
         with:
