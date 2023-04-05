@@ -24,12 +24,12 @@ jobs:
         uses: actions/checkout@v2
       - name: Install moderncv
         run: |
-          sudo apt update && apt install -y git
+          apt update && apt install -y git
           git clone https://github.com/moderncv/moderncv/tree moderncv
           cd moderncv
           git checkout fa3ebb6
-          sudo rm /usr/share/texlive/texmf-dist/tex/latex/moderncv/*
-          sudo cp -r * /usr/share/texlive/texmf-dist/tex/latex/moderncv/
+          rm /usr/share/texlive/texmf-dist/tex/latex/moderncv/*
+          cp -r * /usr/share/texlive/texmf-dist/tex/latex/moderncv/
       - name: Compile Latex
         run: latexmk -pdflua cv.tex
       - name: move
