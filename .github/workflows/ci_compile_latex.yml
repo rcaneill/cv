@@ -27,24 +27,22 @@ jobs:
           pdftoppm cv.pdf cv -png
           mkdir github_deploy
           mv *.png github_deploy
-          echo "DEPLOY_TAG_NAME=$(date +\"%Y.%m.%d-%H.%M.%S-%N\")" >> $GITHUB_OUTPUT
-      - name: Create message
-        env:
-          images: ${{ steps.vars.outputs.files }}
-          tag_name: ${{ steps.png.outputs.DEPLOY_TAG_NAME }}
-        run: |
-          cd github_deploy
-          for i in *.png; do echo "https://github.com/rcaneill/cv/raw/deploy-$tag_name/$i" >> message.txt; done
       - name: deploy on orphan branch
         uses: peaceiris/actions-gh-pages@v3
+        id: publish
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./github_deploy
-          tag_name: ${{ steps.png.outputs.DEPLOY_TAG_NAME }}
           publish_branch: comments
+      - name: Create message
+        env:
+          sha: ${{ steps.publish.outputs.dst_sha }}
+        run: |
+          cd github_deploy
+          for i in *.png; do echo "https://github.com/rcaneill/cv/raw/$sha/$i" >> message.txt; done
       - name: comment png
         uses: thollander/actions-comment-pull-request@v2
         with:
-          filePath: message.txt
+          filePath: github_deploy/message.txt
           
         
