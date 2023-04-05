@@ -39,7 +39,7 @@ jobs:
           sha: ${{ steps.publish.outputs.dst_sha }}
         run: |
           cd github_deploy
-          for i in *.png; do echo "https://github.com/rcaneill/cv/raw/$sha/$i" >> message.txt; done
+          for i in *.png; do echo "https://github.com/rcaneill/cv/raw/${{ steps.publish.outputs.dst_sha }}/$i" >> message.txt; done
       - name: comment png
         uses: thollander/actions-comment-pull-request@v2
         with:
