@@ -25,7 +25,7 @@ jobs:
       - name: Install moderncv
         run: |
           apt update && apt install -y git
-          git clone https://github.com/moderncv/moderncv/tree moderncv
+          git clone https://github.com/moderncv/moderncv moderncv
           cd moderncv
           git checkout fa3ebb6
           rm /usr/share/texlive/texmf-dist/tex/latex/moderncv/*
