@@ -28,19 +28,19 @@ jobs:
           mkdir github_deploy
           mv *.png github_deploy
       - name: deploy on orphan branch
-        uses: peaceiris/actions-gh-pages@7e55c73ee896b01b8b8668370794b96f1bc9c759 #514
-        id: publish
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./github_deploy
-          publish_branch: comments
+          publish_branch: comments-${{ github.event.number }}
       - name: Create message
-        env:
-          sha: ${{ steps.publish.outputs.dst_sha }}
         run: |
+          git clone -b comments-${{ github.event.number }} https://github.com/rcaneill/cv .cv
+          cd .cv
+          sha=$( git rev-parse HEAD )
+          cd ..
           cd github_deploy
-          echo ${{ steps.publish.outputs.dst_shatest }}
-          for i in *.png; do echo "https://github.com/rcaneill/cv/raw/${{ steps.publish.outputs.dst_sha }}/$i" >> message.txt; done
+          for i in *.png; do echo "![$i](https://github.com/rcaneill/cv/raw/$sha/$i)" >> message.txt; done
       - name: comment png
         uses: thollander/actions-comment-pull-request@v2
         with:
