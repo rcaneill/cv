@@ -1,43 +1,39 @@
 \documentclass[11pt,a4paper,roman]{moderncv}
-% possible options include font size ('10pt', '11pt' and '12pt'), paper size ('a4paper', 'letterpaper', 'a5paper', 'legalpaper', 'executivepaper' and 'landscape') and font family ('sans' and 'roman')
 
 % moderncv themes
-\moderncvstyle{classic}                             % style options are 'casual' (default), 'classic', 'oldstyle' and 'banking'
-\moderncvcolor{blue}                               % color options 'blue' (default), 'orange', 'green', 'red', 'purple', 'grey' and 'black'
+\moderncvstyle{classic}
+\moderncvcolor{blue}
 
 \usepackage{tabularx}
 
 \usepackage{ragged2e}
 
-\newcommand*{\cvtripleitem}[6][.25em]{%
- \cvitem[#1]{#2}{%
-   \begin{minipage}[t]{\doubleitemmaincolumnwidth}#3\end{minipage}%
-   \hfill% fill of \separatorcolumnwidth
-   \begin{minipage}[t]{\hintscolumnwidth}\raggedleft\hintstyle{#4}\end{minipage}%
-   \hspace*{\separatorcolumnwidth}%
-   \begin{minipage}[t]{\doubleitemmaincolumnwidth}\raggedright\hintstyle{#5}\end{minipage}}%
-   \par\noindent%
+\newcommand*{\cvtripleitem}[6][.25em]{
+ \cvitem[#1]{#2}{
+   \begin{minipage}[t]{\doubleitemmaincolumnwidth}#3\end{minipage}
+   \hfill
+   \begin{minipage}[t]{\hintscolumnwidth}\raggedleft\hintstyle{#4}\end{minipage}
+   \hspace*{\separatorcolumnwidth}
+   \begin{minipage}[t]{\doubleitemmaincolumnwidth}\raggedright\hintstyle{#5}\end{minipage}}
+   \par\noindent
    \begin{minipage}[t]{\linewidth}\centering#6\end{minipage}}
 
 % character encoding
-\usepackage[utf8]{inputenc}                       % if you are not using xelatex ou lualatex, replace by the encoding you are using
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 % adjust the page margins
 \usepackage[scale=0.82, top=1.5cm, bottom=1cm]{geometry} %scale=0.75
-%\setlength{\hintscolumnwidth}{3cm}                % if you want to change the width of the column with the dates
-%\setlength{\makecvtitlenamewidth}{10cm}           % for the 'classic' style, if you want to force the width allocated to your name and avoid line breaks. be careful though, the length is normally calculated to avoid any overlap with your personal info; use this at your own typographical risks...
+%\setlength{\hintscolumnwidth}{2.5cm} % if you want to change the width of the column with the dates
 
 % personal data
 \name{Romain}{Caneill}
-%\title{PhD application}                          % optional, remove / comment the line if not wanted
-%\phone[mobile]{}                   % optional, remove / comment the line if not wanted
-\email{romain.caneill@gu.se}                               % optional, remove / comment the line if not wanted
-\address{}{41322 Gothenburg, Sweden}% optional, remove / comment the line if not wanted; the "postcode city" and and "country" arguments can be omitted or provided empty
+%\title{PhD application} % optional
+%\phone[mobile]{} % optional
+\email{romain.caneill@gu.se} % optional
+\address{}{41322 Gothenburg, Sweden} % optional
 %\extrainfo{}
-\social[github]{rcaneill}\social[twitter]{rcaneill}
-
-                        % optional, remove / comment the line if not wanted
+\social[github]{rcaneill}
+\social[mastodon]{fediscience.org/web/@rcaneill}
 
 % to show numerical labels in the bibliography (default is to show no labels); only useful if you make citations in your resume
 %\makeatletter
@@ -56,42 +52,104 @@
 
 \makecvtitle
 
-\vspace*{-1.2cm}
+%\vspace*{-1.2cm}
 
 \section{Education}
-\cventry{2015 -- 2017}{Master's degree in geophysics}{École Normale Supérieure de Lyon (ENSL, an elite French public institution) and Lyon 1 University}{Lyon}{France}{Physics and chemistry of the Earth and Planets}
-\cventry{2014 -- 2015}{Bachelor's degree in fundamental physics}{École Normale Supérieure de Lyon and Lyon 1 University}{Lyon}{France}{}
-\cventry{2012 -- 2014}{Two-year university degree in physics and mathematics}{Paris-Sud University}{Orsay}{France}{}
+\cventry{2015 -- 2017}
+        {Master's degree in geophysics}
+        {École Normale Supérieure de Lyon (ENSL) and Lyon 1 University}
+        {Lyon}
+        {France}
+        {Physics and chemistry of the Earth and Planets}
+\cventry{2014 -- 2015}
+        {Bachelor's degree in fundamental physics}
+        {École Normale Supérieure de Lyon and Lyon 1 University}
+        {Lyon}{France}{}
+\cventry{2012 -- 2014}
+        {Two-year university degree in physics and mathematics}
+        {Paris-Sud University}
+        {Orsay}
+        {France}
+        {}
 
 
 \section{Academic experience}
-\cventry{2018 -- now}{PhD studies}{Marine Department, Gothenburg University}{Gothenburg, Sweden}{supervised by Fabien Roquet}{\textbf{.}}
-\cventry{2017, 5 m.}{Master's internship}{Institute for Geosciences and Environmental research}{Grenoble, France}{supervised by Ghislain Picard}{\textbf{Analysis of Elevation Maps Measured by Laser Scannering at Dome C, Antarctica. Investigation of Snow Accumulation Processes.}}
-\cventry{2016, 3 m.}{Master's internship}{Meteorological Institute of Stockholm University}{Stockholm, Sweden}{supervised by Fabien Roquet}{\textbf{Assessing the fine-scale structure of the ocean circulation above the Kerguelen Plateau from instrumented seals.}}
-\cventry{2015, 2 m.}{Bachelor's internship}{Snow Research Centre}{Grenoble, France}{supervised by Frédéric Flin}{\textbf{Calibration of a Cryogenic Cell for the Study of Snow.}}
+\cventry{2018 -- present}
+        {PhD studies}
+        {Department of Marine Sciences, University of Gothenburg}
+        {Gothenburg, Sweden}
+        {supervised by Fabien Roquet}
+        {\textbf{.}}
+\cventry{2017}
+        {Master's internship}
+        {Institute for Geosciences and Environmental research}
+        {Grenoble, France}
+        {supervised by Ghislain Picard, 5 months}
+        {\textbf{Analysis of Elevation Maps Measured by Laser Scannering at
+            Dome C, Antarctica. Investigation of Snow Accumulation Processes.}}
+\cventry{2016}
+        {Master's internship}
+        {Meteorological Institute of Stockholm University}
+        {Stockholm, Sweden}
+        {supervised by Fabien Roquet, 3 months}
+        {\textbf{Assessing the fine-scale structure of the ocean
+            circulation above the Kerguelen Plateau from instrumented seals.}}
+\cventry{2015}
+        {Bachelor's internship}
+        {CEN: Snow Research Centre}
+        {Grenoble, France}
+        {supervised by Frédéric Flin, 2 months}
+        {\textbf{Calibration of a Cryogenic Cell for the Study of Snow.}}
 
+        
 \section{Teaching experience}
-\cventry{2018}{Physical oceanography part 1}{Marine Department, Gothenburg University}{Gothenburg, Sweden}{Teacher assistant, N hours}{}
+\cventry{2022}
+        {CodeRefinery workshop}
+        {Hosted by \href{https://coderefinery.org}{coderefinery.org}}
+        {6 half days online -- Git version control, testing code, produce reproducible science}
+        {Exercise leader, \href{https://coderefinery.github.io/2022-03-22-workshop}{coderefinery.github.io/2022-03-22-workshop}}
+        {}
+\cventry{2020 -- 2022}
+        {Physical oceanography II (OCM210), Master course}
+        {Department of Marine Sciences, University of Gothenburg}
+        {Gothenburg, Sweden}
+        {Teacher assistant}
+        {}
+\cventry{2019}
+        {Ocean modelling (OC6310), Master course}
+        {Department of Marine Sciences, University of Gothenburg}
+        {Gothenburg, Sweden}
+        {Teacher assistant}
+        {}
+\cventry{2018 -- 2022}
+        {Physical oceanography I (OCM100), Master course}
+        {Department of Marine Sciences, University of Gothenburg}
+        {Gothenburg, Sweden}
+        {Teacher assistant}
+        {}
 
 \section{Skills}
 \subsection{Languages}
 
 \cvitem{}{\textbf{French}\hspace{\separatorcolumnwidth}Native language\hfill
-\textbf{English}\hspace{\separatorcolumnwidth}Oral and written practice\hfill
-\textbf{German}\hspace{\separatorcolumnwidth}Basics}
+  \textbf{English}\hspace{\separatorcolumnwidth}Oral and written practice\hfill
+  \textbf{German}\hspace{\separatorcolumnwidth}Basics}
 
 \subsection{Computer science}
 \begin{description}
     \item[\hspace{\hintscolumnwidth}\hspace{\separatorcolumnwidth}\color{blue}$\circ$]
-    Proficient with data analysis (\textbf{Python}, \textbf{Git}, \textbf{GNU/Linux}, \textbf{Snakemake})
+      Proficient with data analysis (\textbf{Python}, \textbf{Git},
+      \textbf{GNU/Linux}, \textbf{Snakemake})
     \item[\hspace{\hintscolumnwidth}\hspace{\separatorcolumnwidth}\color{blue}$\circ$]
-    Proficient with articles and documents production (regular practice of \textbf{Latex})
+      Proficient with articles and documents production (regular practice of
+      \textbf{Latex})
     \item[\hspace{\hintscolumnwidth}\hspace{\separatorcolumnwidth}\color{blue}$\circ$]
-    Basic level in \textbf{C}, \textbf{Fortran}
+      Basic level in \textbf{C}, \textbf{Fortran}
 \end{description}
 
 \section{Hobbies}
 \cvitem{\textbf{Music}}{Guitar, composition, concert sound system installation.}
-\cvitem{\textbf{Sports}}{Mountaineering, climbing in competition, skiing, trekking.}
+\cvitem{\textbf{Sports}}{Mountaineering, climbing in competition, skiing,
+  trekking.}
 
 \end{document}

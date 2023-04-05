@@ -24,17 +24,16 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Install TeXlive
-        run: sudo apt install texlive texlive-latex-extra latexmk
-      - name: LaTeX compile
-        working-directory: ${{ env.DIR }}
-        run: latexmk -pdf -bibtex ${{ env.FILE }}
+      - name Compile Latex
+        uses: xu-cheng/latex-action@v2
+        with:
+          root_file: cv.tex
       - name: move
-        run: mkdir -p github_artifacts && mv ${{ env.DIR }}/${{ env.FILE }}.pdf ./github_artifacts/
+        run: mkdir -p github_artifacts && mv cv.pdf ./github_artifacts/
       - name: Upload pdf as artifact
         uses: actions/upload-artifact@v2
         with:
-          name: ${{ env.FILE }}.pdf
+          name: cv.pdf
           path: ./github_artifacts
   deploy:
     # Edit here if compiling multiple papers
