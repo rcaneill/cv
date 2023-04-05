@@ -1,0 +1,51 @@
+
+name: ci_compile_latex
+on:
+  pull_request:
+
+jobs:
+  paper:
+    runs-on: ubuntu-latest
+    container:
+      image: thomasweise/docker-texlive-full:latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Install moderncv
+        run: |
+          apt update && apt install -y git poppler-utils
+          git clone https://github.com/moderncv/moderncv moderncv
+          cd moderncv
+          git checkout fa3ebb6
+          rm /usr/share/texlive/texmf-dist/tex/latex/moderncv/*
+          cp -r * /usr/share/texlive/texmf-dist/tex/latex/moderncv/
+      - name: Compile Latex
+        run: latexmk -pdflua cv.tex
+      - name: Convert to png
+        id: png
+        run: |
+          pdftoppm cv.pdf cv -png
+          mkdir github_deploy
+          mv *.png github_deploy
+      - name: deploy on orphan branch
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./github_deploy
+          publish_branch: comments-${{ github.event.number }}
+      - name: Create message
+        run: |
+          git clone -b comments-${{ github.event.number }} https://github.com/rcaneill/cv .cv
+          cd .cv
+          sha=$( git rev-parse HEAD )
+          cd ..
+          cd github_deploy
+          echo "<div>" >> message.txt
+          for i in *.png; do echo "<img src=\"https://github.com/rcaneill/cv/raw/$sha/$i\" width=\"350\"/>" >> message.txt; done
+          echo "</div>" >> message.txt
+      - name: comment png
+        uses: thollander/actions-comment-pull-request@v2
+        with:
+          filePath: github_deploy/message.txt
+          
+        

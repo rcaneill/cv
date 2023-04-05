@@ -13,7 +13,10 @@
 # To compile multiple papers, duplicate the job called "paper" with different FILE/DIR names and add the "needs" line in the "deploy" job accordingly  
 
 name: compile_deploy_latex
-on: [push]
+on:
+  push:
+    branches:
+      - master
 jobs:
   paper:
     runs-on: ubuntu-latest
@@ -21,7 +24,7 @@ jobs:
       image: thomasweise/docker-texlive-full:latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Install moderncv
         run: |
           apt update && apt install -y git
@@ -35,7 +38,7 @@ jobs:
       - name: move
         run: mkdir -p github_artifacts && mv cv.pdf ./github_artifacts/
       - name: Upload pdf as artifact
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: cv.pdf
           path: ./github_artifacts
@@ -45,8 +48,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
-      - uses: actions/download-artifact@v2
+        uses: actions/checkout@v3
+      - uses: actions/download-artifact@v3
         with:
           path: github_artifacts
       - name: move

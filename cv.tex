@@ -22,8 +22,10 @@
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 % adjust the page margins
-\usepackage[scale=0.82, top=1.5cm, bottom=1cm]{geometry} %scale=0.75
+\usepackage[scale=0.82, top=1.5cm, bottom=1.7cm]{geometry} %scale=0.75
 %\setlength{\hintscolumnwidth}{2.5cm} % if you want to change the width of the column with the dates
+\recomputelengths % seems to be necessary
+\include{commons/colors}
 
 % personal data
 \name{Romain}{Caneill}
@@ -55,6 +57,12 @@
 %\vspace*{-1.2cm}
 
 \section{Education}
+\cventry{2018 -- present}
+        {PhD studies}
+        {Department of Marine Sciences, University of Gothenburg}
+        {Gothenburg, Sweden}
+        {supervised by Fabien Roquet}
+        {Physical Oceanography}
 \cventry{2015 -- 2017}
         {Master's degree in geophysics}
         {École Normale Supérieure de Lyon (ENSL) and Lyon 1 University}
@@ -74,12 +82,6 @@
 
 
 \section{Academic experience}
-\cventry{2018 -- present}
-        {PhD studies}
-        {Department of Marine Sciences, University of Gothenburg}
-        {Gothenburg, Sweden}
-        {supervised by Fabien Roquet}
-        {\textbf{.}}
 \cventry{2017}
         {Master's internship}
         {Institute for Geosciences and Environmental research}
@@ -128,25 +130,71 @@
         {Teacher assistant}
         {}
 
+
+\nocite{*}
+\bibliographystyle{IEEEtran}
+\bibliography{publications}
+
+        
 \section{Skills}
+
+\cvlistitem{Dynamical and descriptive physical oceanography}
+\cvlistitem{Climate and ocean data analysis}
+\cvlistitem{Ocean modelling (NEMO)}
+\cvlistitem{Profiles analyzes (e.g. ARGO)}
+
+\subsection{Computer science}
+\cvlistitem{
+  Proficient with \textbf{Python} data analysis (numpy, xarray, matplotlib, jupyter), and \textbf{Snakemake}
+  }
+\cvlistitem{
+  Good level in open- and reproducible-science practices
+  (\textbf{Git}, \textbf{GitHub}, \textbf{GitHub actions}, \textbf{GNU/Linux}, \textbf{Apptainer} container system, python application testing with \textbf{pytest})
+  }
+\cvlistitem{
+  Proficient with articles and documents production (regular practice of
+  \textbf{Latex}, \textbf{Markdown})
+  }
+\cvlistitem{
+  Basic level in \textbf{C}, \textbf{Fortran}
+}
+
 \subsection{Languages}
 
 \cvitem{}{\textbf{French}\hspace{\separatorcolumnwidth}Native language\hfill
-  \textbf{English}\hspace{\separatorcolumnwidth}Oral and written practice\hfill
-  \textbf{German}\hspace{\separatorcolumnwidth}Basics}
+  \textbf{English}\hspace{\separatorcolumnwidth}Oral and written practice}
 
-\subsection{Computer science}
-\begin{description}
-    \item[\hspace{\hintscolumnwidth}\hspace{\separatorcolumnwidth}\color{blue}$\circ$]
-      Proficient with data analysis (\textbf{Python}, \textbf{Git},
-      \textbf{GNU/Linux}, \textbf{Snakemake})
-    \item[\hspace{\hintscolumnwidth}\hspace{\separatorcolumnwidth}\color{blue}$\circ$]
-      Proficient with articles and documents production (regular practice of
-      \textbf{Latex})
-    \item[\hspace{\hintscolumnwidth}\hspace{\separatorcolumnwidth}\color{blue}$\circ$]
-      Basic level in \textbf{C}, \textbf{Fortran}
-\end{description}
+\section{Participation to open-source projects}
+\cvline{\textbf{xnemogcm}}{
+  Core developer. xnemogcm is a python package that opens NEMO outputs and make them compliant with xgcm.
+}
+\cvline{}{\textit{
+    \href{https://github.com/rcaneill/xnemogcm}
+         {github.com/rcaneill/xnemogcm}
+}}
 
+\cvline{\textbf{xnemogcm test data}}{
+  Containers that can run NEMO 3.6 to 4.2 test case in a reproducible way to produce test data for xnemogcm.
+}
+\cvline{}{\textit{
+    \href{https://github.com/rcaneill/xnemogcm_test_data}
+         {github.com/rcaneill/xnemogcm\_test\_data}
+}}
+
+\cvline{\textbf{xgcm}}{
+  I wrote the NEMO example, the documentation on grid boundary conditions, and I participated to discussions about vertical remapping.}
+\cvline{}{\textit{
+  \href{https://github.com/xgcm/xgcm/commits?author=rcaneill}
+       {github.com/xgcm/xgcm/commits?author=rcaneill}
+}}
+
+\cvline{\textbf{gsw-xarray}}{
+  Core developer. gsw-xarray is a xarray wrapper for gsw that adds CF attributes.
+}
+\cvline{}{\textit{
+  \href{https://github.com/DocOtak/gsw-xarray}
+       {github.com/DocOtak/gsw-xarray}
+}}
 \section{Hobbies}
 \cvitem{\textbf{Music}}{Guitar, composition, concert sound system installation.}
 \cvitem{\textbf{Sports}}{Mountaineering, climbing in competition, skiing,
