@@ -1,4 +1,4 @@
-name: compile_deploy_latex
+name: compile_deploy_html
 on:
   push:
     branches:
