@@ -9,7 +9,7 @@ HTML = find_plugin("pybtex.backends", "html")()
 def bib_to_apa7_html(bibfile):
     with open(bibfile) as f:
         bibstr = "".join(f.readlines()).replace(
-            r"\textbf{R, Caneill}", "Caneill, Romain"
+            r"\textbf{R. Caneill}", "Caneill, Romain"
         )
     bibliography = parse_string(bibstr, "bibtex")
     # We sort by date
