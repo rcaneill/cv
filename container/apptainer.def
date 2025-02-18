@@ -1,0 +1,18 @@
+BootStrap: docker
+From: debian:bookworm-20241223-slim
+
+%post
+    # install what is needed
+    apt -y update
+    # ssh needed by openmpi
+    apt -y install git texlive-full
+    git clone https://github.com/moderncv/moderncv moderncv
+    cd moderncv
+    git checkout fa3ebb6
+    rm /usr/share/texlive/texmf-dist/tex/latex/moderncv/*
+    cp -r * /usr/share/texlive/texmf-dist/tex/latex/moderncv/
+
+%runscript
+    export TEXMFCACHE=.tex; LC_ALL=C latexmk -pdflua cv.tex
+     
+    
