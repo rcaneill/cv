@@ -25,3 +25,5 @@
 publications.html
 *.fdb_latexmk
 *.fls
+*.sif
+.tex/
