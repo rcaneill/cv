@@ -1,3 +1,11 @@
+all: cover_letter_romain_caneill.pdf cv_romain_caneill.pdf
+
+cover_letter_romain_caneill.pdf: cv.pdf
+	qpdf cv.pdf --pages . 1 -- $@
+
+cv_romain_caneill.pdf: cv.pdf
+	qpdf cv.pdf --pages . 2-z -- $@
+
 cv.pdf: container-latex.sif cv.tex
 	./container-latex.sif --no-home
 
