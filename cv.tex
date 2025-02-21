@@ -33,11 +33,10 @@
 %\phone[mobile]{} % optional
 \email{romain.caneill@univ-grenoble-alpes.fr} % optional
 \address{}{Grenoble, France} % optional
-\extrainfo{\href{https://romaincaneill.fr}{romaincaneill.fr}}
-\social[github]{rcaneill}
-\social[gitlab][gitlab.com/rcaneill/]{rcaneill}
-\social[mastodon]{fediscience.org/web/@rcaneill}
-\extrainfo{PGP fingerprint:\\
+%\social[github]{rcaneill}
+%\social[gitlab][gitlab.com/rcaneill/]{rcaneill}
+\extrainfo{\href{https://romaincaneill.fr}{romaincaneill.fr}\\
+PGP fingerprint:\\
   \texttt{70D5 7116 37B2 9335 9088}\\
   \texttt{F124 D0FE 114E BFFD ED7F}}
 
@@ -56,9 +55,77 @@
 
 \begin{document}
 
+
+%----------------------------------------------------------------------------------------
+%	COVER LETTER
+%----------------------------------------------------------------------------------------
+
+% To remove the cover letter, comment out this entire block
+
+\clearpage
+
+\opening{Dear Sir or Madam,} % Opening greeting
+\closing{Sincerely yours,} % Closing phrase
+\enclosure[Attached]{curriculum vit\ae{}} % List of enclosed documents
+
+~\hfill \today
+
+\vspace{1.5cm}
+
+Dear NEMO system team,
+
+\vspace{1.5cm}
+
+I am contacting you to apply to the NEMO Demonstrator Hackathon that will be held from the
+15th to the 21st of June in Exeter.
+
+
+\vspace{.5cm}
+
+During my PhD, I gained experience with NEMO
+as we developed a single basin configuration.
+In this configuration we employed terrain-following coordinates
+and analytical fields for the bathymetry and forcings.
+
+
+\vspace{.5cm}
+
+I have experience in writing simple but well-designed analyses
+with the \emph{Python} language. I also develop the \emph{xnemogcm} Python
+library and containers containing a compiled NEMO environment.
+Last, I wrote documentation for several projects,
+e.g. \emph{xgcm}, \emph{gsw-xarray}.
+
+
+
+\vspace{.5cm}
+
+
+By participating in the hackathon, I hope to fully learn how to set
+up a realistic configuration with sea ice.
+This knowledge would be directly applicable for me,
+as I currently work on the dynamics of sea ice and its modelling.
+Meeting all the system team would be a great chance for potential collaboration,
+as I will use again NEMO in the near future.
+
+\vspace{.5cm}
+
+I would like to create a demonstrator for a realistic configuration,
+with a preference in the Arctic region. 
+
+\vspace{.5cm}
+
+\makeletterclosing % Print letter signature
+
+\newpage
+
+
+
+\vspace{-0.5cm}
+
 \makecvtitle
 
-\vspace*{0.5cm}
+\vspace*{-0.5cm}
 
 \section{Academic experience -- employement}
 \cventry{2024 -- 2027}
@@ -66,7 +133,7 @@
         {Institute of Environmental Geosciences}
         {Grenoble, France}
         {working with Pierre Rampal, SASIP project}
-        {Physical oceanography, see ice}
+        {Lagrangian perspective on the sea ice dynamics and turbulence}
 \cventry{2018 -- 2024}
         {PhD studies}
         {Department of Marine Sciences, University of Gothenburg}
@@ -75,27 +142,6 @@
         {Physical oceanography.
           \textbf{From alpha to beta ocean: Exploring the role of surface buoyancy fluxes and seawater thermal expansion in setting the upper ocean stratification}
         }
-\cventry{2017}
-        {Master's internship}
-        {Institute for Geosciences and Environmental research}
-        {Grenoble, France}
-        {supervised by Ghislain Picard, 5 months}
-        {\textbf{Analysis of Elevation Maps Measured by Laser Scannering at
-            Dome C, Antarctica. Investigation of Snow Accumulation Processes.}}
-\cventry{2016}
-        {Master's internship}
-        {Meteorological Institute of Stockholm University}
-        {Stockholm, Sweden}
-        {supervised by Fabien Roquet, 3 months}
-        {\textbf{Assessing the fine-scale structure of the ocean
-            circulation above the Kerguelen Plateau from instrumented seals.}}
-\cventry{2015}
-        {Bachelor's internship}
-        {CEN: Snow Research Centre}
-        {Grenoble, France}
-        {supervised by Frédéric Flin, 2 months}
-        {\textbf{Calibration of a Cryogenic Cell for the Study of Snow.}}
-
 
 
 \section{Education}
@@ -109,12 +155,6 @@
         {Bachelor's degree in fundamental physics}
         {École Normale Supérieure de Lyon and Lyon 1 University}
         {Lyon}{France}{}
-\cventry{2012 -- 2014}
-        {Two-year university degree in physics and mathematics}
-        {Paris-Sud University}
-        {Orsay}
-        {France}
-        {}
 
 
         
@@ -125,25 +165,18 @@
         {6 half days online -- Git version control, testing code, produce reproducible science}
         {Exercise leader, \href{https://coderefinery.github.io/2022-03-22-workshop}{coderefinery.github.io/2022-03-22-workshop}}
         {}
-\cventry{2020 -- 2022}
-        {Physical oceanography II (OCM210), Master course}
+\cventry{2018 -- 2022}
+        {Physical oceanography I and II, Master course}
         {Department of Marine Sciences, University of Gothenburg}
         {Gothenburg, Sweden}
         {Teacher assistant}
         {}
 \cventry{2019}
-        {Ocean modelling (OC6310), Master course}
+        {Ocean modelling, Master course}
         {Department of Marine Sciences, University of Gothenburg}
         {Gothenburg, Sweden}
         {Teacher assistant}
         {}
-\cventry{2018 -- 2022}
-        {Physical oceanography I (OCM100), Master course}
-        {Department of Marine Sciences, University of Gothenburg}
-        {Gothenburg, Sweden}
-        {Teacher assistant}
-        {}
-
 
 \nocite{*}
 \bibliographystyle{IEEEtran}
@@ -220,7 +253,7 @@
 }}
 
 \cvline{\textbf{xnemogcm-test-data}}{
-  Containers that can run NEMO 3.6 to 4.2 test case in a reproducible way to produce test data for xnemogcm.
+  Containers that can run NEMO 3.6 to 5 test case in a reproducible way to produce test data for xnemogcm.
 }
 \cvline{}{\textit{
     \href{https://github.com/rcaneill/xnemogcm_test_data}
@@ -241,10 +274,11 @@
   \href{https://github.com/DocOtak/gsw-xarray}
        {github.com/DocOtak/gsw-xarray}
 }}
-\section{Hobbies}
-\cvitem{\textbf{Carpentry}}{Professional French Diploma in cabinet making (in French: \emph{CAP de menuiserie}).}
-\cvitem{\textbf{Music}}{Guitar, composition, concert sound system installation.}
-\cvitem{\textbf{Sports}}{Mountaineering, climbing in competition, skiing,
-  trekking, wave surfing, kite surfing.}
+
+%% \section{Hobbies}
+%% \cvitem{\textbf{Carpentry}}{Professional French Diploma in cabinet making (in French: \emph{CAP de menuiserie}).}
+%% \cvitem{\textbf{Music}}{Guitar, composition, concert sound system installation.}
+%% \cvitem{\textbf{Sports}}{Mountaineering, climbing, skiing,
+%%   trekking, wave surfing, kite surfing.}
 
 \end{document}
