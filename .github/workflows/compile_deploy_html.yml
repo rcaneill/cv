@@ -36,7 +36,7 @@ jobs:
         uses: actions/checkout@v7
       - uses: actions/download-artifact@v7
         with:
-          path: github_artifacts
+          path: ./github_artifacts
       - name: move
         run: mkdir -p github_deploy && mv github_artifacts/*/* github_deploy
       - name: deploy on orphan branch
