@@ -10,7 +10,7 @@ jobs:
       image: thomasweise/docker-texlive-full:latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
       - name: Install moderncv
         run: |
           apt update && apt install -y git poppler-utils

@@ -24,7 +24,7 @@ jobs:
       image: thomasweise/docker-texlive-full:latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
       - name: Install moderncv
         run: |
           apt update && apt install -y git
@@ -38,7 +38,7 @@ jobs:
       - name: move
         run: mkdir -p github_artifacts && mv cv.pdf ./github_artifacts/
       - name: Upload pdf as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v7
         with:
           name: cv.pdf
           path: ./github_artifacts
@@ -48,8 +48,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-      - uses: actions/download-artifact@v3
+        uses: actions/checkout@v7
+      - uses: actions/download-artifact@v7
         with:
           path: github_artifacts
       - name: move
