@@ -1,3 +1,4 @@
+.tex/
 *.aux
 *.glo
 *.idx
@@ -26,4 +27,3 @@ publications.html
 *.fdb_latexmk
 *.fls
 *.sif
-.tex/
