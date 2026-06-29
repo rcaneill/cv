@@ -23,7 +23,7 @@ jobs:
       - name: move
         run: mkdir -p github_artifacts && mv publications.html ./github_artifacts/
       - name: Upload html as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v7
         with:
           name: publications.html
           path: ./github_artifacts
