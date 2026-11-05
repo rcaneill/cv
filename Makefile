@@ -1,4 +1,4 @@
-cv.pdf: container-latex.sif cv.tex
+cv.pdf: container-latex.sif cv.tex publications.bib
 	./container-latex.sif --no-home
 
 container-latex.sif: container/apptainer.def
